@@ -29,28 +29,23 @@ def graficar(ns, tiempos):
     plt.xlabel('Tamaño de input n')
     plt.ylabel('Tiempo de ejecución (segundos)')
     plt.title('Tiempo de ejecución vs. Tamaño de input n')
-    plt.xscale('log')  # Escala logarítmica para el eje X
-    plt.yscale('log')  # Escala logarítmica para el eje Y
+    plt.xscale('log')
+    plt.yscale('log')  
     plt.grid(True, which="both", ls="--", linewidth=0.5)
     plt.tight_layout()
     
-    # Guardar la gráfica en un archivo
     plt.savefig('tiempo_ejecucion_vs_n.png')
     print("La gráfica ha sido guardada como 'tiempo_ejecucion_vs_n.png'.")
     
-    # Mostrar la gráfica
     plt.show()
 
 if __name__ == "__main__":
-    # Reducir los valores de n para evitar tiempos de ejecución largos
     ns = [1, 10, 100, 1000, 10000, 20000, 50000]
     tiempos = medir_tiempos(ns)
     
-    # Mostrar resultados en tabla
     print("\nResultados:")
     print("n\tTiempo (segundos)")
     for n, t in zip(ns, tiempos):
         print(f"{n}\t{t:.6f}")
     
-    # Generar la gráfica
     graficar(ns, tiempos)

@@ -6,7 +6,6 @@ def function(n):
         return
     for i in range(1, n + 1):
         for j in range(1, n + 1):
-            # print("Sequence")  # Comentado para mejorar precisión del profiling
             break
 
 def medir_tiempos(ns):
@@ -33,17 +32,13 @@ def graficar(ns, tiempos):
     plt.show()
 
 if __name__ == "__main__":
-    # Definir los valores de n a probar
     ns = [1, 10, 100, 1000, 10000, 100000, 1000000]
     
-    # Medir los tiempos de ejecución
     tiempos = medir_tiempos(ns)
     
-    # Mostrar resultados en tabla
     print("\nResultados:")
     print("n\tTiempo (segundos)")
     for n, t in zip(ns, tiempos):
         print(f"{n}\t{t:.6f}")
     
-    # Generar la gráfica
     graficar(ns, tiempos)
